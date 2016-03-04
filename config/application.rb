@@ -6,6 +6,8 @@ if defined?(Bundler)
   Bundler.require(*Rails.groups(:assets => %w(development test)))
 end
 
+Dotenv::Railtie.load
+
 module TodoList
   class Application < Rails::Application
     config.time_zone = 'Brasilia'

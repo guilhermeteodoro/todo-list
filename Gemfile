@@ -13,6 +13,10 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.4'
+  gem 'factory_girl', '~> 4.5'
+  gem 'faker', '~> 1.6'
+  gem 'test-unit', '~> 3.0'
+  gem 'dotenv-rails'
 end
 
 gem 'jquery-rails'
