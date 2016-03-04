@@ -5,6 +5,7 @@ capybara-*.html
 /tmp
 /db/*.sqlite3
 /db/*.sqlite3-journal
+/db/schema.rb
 /public/system
 /coverage/
 /spec/tmp
@@ -21,10 +22,7 @@ config/secrets.yml
 /vendor/bundle
 
 # these should all be checked in to normalize the environment:
-# Gemfile.lock, .ruby-version, .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
+Gemfile.lock
 
 # if using bower-rails ignore default bower_components path bower.json files
 /vendor/assets/bower_components

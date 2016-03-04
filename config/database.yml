@@ -1,0 +1,15 @@
+development: &default
+  adapter: postgresql
+  encoding: utf8
+  database: todo_list_development
+  host: localhost
+  username: todolist
+  password: 123123
+
+test:
+  <<: default*
+  database: todo_list_test
+
+production:
+  <<: default*
+  database: todo_list_production
