@@ -3,13 +3,13 @@ development: &default
   encoding: utf8
   database: todo_list_development
   host: localhost
-  username: todolist
-  password: 123123
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
 
 test:
-  <<: default*
+  <<: *default
   database: todo_list_test
 
 production:
-  <<: default*
+  <<: *default
   database: todo_list_production
