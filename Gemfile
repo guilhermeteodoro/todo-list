@@ -18,6 +18,7 @@ group :development, :test do
   gem 'faker', '~> 1.6'
   gem 'test-unit', '~> 3.0'
   gem 'dotenv-rails', '~> 2.0.1'
+  gem 'database_cleaner', '~> 1.5.1'
 end
 
 gem 'jquery-rails', '~> 3.1.4'
