@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'json'
 
 describe API::V1::TasksController do
   let(:task_attributes){ attributes_for :task }
@@ -21,7 +22,7 @@ describe API::V1::TasksController do
     end
 
     it 'returns created task' do
-      expect(response.body).to eq(task_attributes.to_json)
+      expect(task_attributes.values - JSON.parse(response.body).values).to eq([])
     end
   end
 
