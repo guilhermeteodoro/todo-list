@@ -6,7 +6,7 @@ if defined?(Bundler)
   Bundler.require(*Rails.groups(:assets => %w(development test)))
 end
 
-Dotenv::Railtie.load
+Dotenv::Railtie.load if %w(development test).include? Rails.env
 
 module TodoList
   class Application < Rails::Application

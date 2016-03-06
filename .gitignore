@@ -19,8 +19,6 @@ config/secrets.yml
 /.bundle
 /vendor/bundle
 
-Gemfile.lock
-
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
