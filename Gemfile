@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'rails', '3.2.22.2'
 gem 'pg', '~> 0.18.4'
 gem 'active_model_serializers', '~> 0.9.4'
@@ -20,5 +22,7 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.0.1'
   gem 'database_cleaner', '~> 1.5.1'
 end
+
+gem 'rails_12factor', group: :production
 
 gem 'jquery-rails', '~> 3.1.4'
