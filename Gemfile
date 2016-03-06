@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.22.2'
-gem 'pg', '0.18.4'
-gem 'active_model_serializers', '0.9.4'
-gem 'puma'
+gem 'pg', '~> 0.18.4'
+gem 'active_model_serializers', '~> 0.9.4'
+gem 'strong_parameters', '~> 0.2.3'
+gem 'puma', '~> 3.0.2'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -16,7 +17,8 @@ group :development, :test do
   gem 'factory_girl', '~> 4.5'
   gem 'faker', '~> 1.6'
   gem 'test-unit', '~> 3.0'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '~> 2.0.1'
+  gem 'database_cleaner', '~> 1.5.1'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 3.1.4'

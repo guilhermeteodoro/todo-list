@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Task' do
-  subject(:task){ build :task }
+  let(:task){ build :task }
 
   it 'has a valid factory' do
     expect(task).to be_valid
