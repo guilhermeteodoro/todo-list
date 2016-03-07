@@ -10,6 +10,7 @@ Dotenv::Railtie.load if %w(development test).include? Rails.env
 
 module TodoList
   class Application < Rails::Application
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'javascripts', 'bower_components')
     config.time_zone = 'Brasilia'
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
