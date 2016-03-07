@@ -2,7 +2,7 @@ this.TodoList = (function(Backbone, Marionette) {
   var App = new Marionette.Application;
 
   App.addRegions({
-    formRegion: 'form-region'
+    formRegion: '.form-region'
   });
 
   App.addInitializer(function() {

@@ -23,7 +23,7 @@ this.TodoList.module('Controllers', function(Controllers, App, Backbone, Marione
       }
 
       _.defaults(options, {
-        classLoading: '.is-loading',
+        classLoading: 'is-loading',
         entities: false,
         region: App.mainRegion
       });
@@ -35,7 +35,7 @@ this.TodoList.module('Controllers', function(Controllers, App, Backbone, Marione
     },
 
     _manageViews: function() {
-      this.options.region.show(this.loadingView());
+      this.options.region.show(new this.loadingView);
 
       if (!this.options.entities) {
         return this.options.region.show(this.view);
@@ -60,11 +60,9 @@ this.TodoList.module('Controllers', function(Controllers, App, Backbone, Marione
       }.bind(this)));
     },
 
-    loadingView: function() {
-      new Marionette.ItemView({
-        template: false,
-        className: this.options.classLoading
-      });
-    }
-  })(Marionette.Controller);
+    loadingView: Marionette.ItemView.extend({
+      template: false,
+      className: this.options.classLoading
+    })
+  });
 });

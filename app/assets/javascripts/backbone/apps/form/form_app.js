@@ -1,7 +1,13 @@
 this.TodoList.module('FormApp', function(FormApp, App, Backbone, Marionette, $, _) {
-  var API;
+  this.startWithParent = false;
 
-  API = {
-
+  var API = {
+    show: function() {
+      return new FormApp.Show.Controller;
+    }
   };
-};
+
+  FormApp.on('start', function() {
+    return API.show();
+  });
+});

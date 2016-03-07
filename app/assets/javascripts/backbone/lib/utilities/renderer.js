@@ -18,7 +18,9 @@ this.TodoList.module('Utilities', function(Utilities, App, Backbone, Marionette,
       var lookup, path, _i, _len, _ref;
 
       _ref = this.lookups;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      _len = _ref.length;
+
+      for (_i = 0; _i < _len; _i++) {
         lookup = _ref[_i];
         path = lookup + "/" + template;
 
