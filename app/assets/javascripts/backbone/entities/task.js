@@ -21,7 +21,10 @@ this.TodoList.module('Entities', function(Entities, App, Backbone, Marionette, $
     },
 
     getTasks: function() {
-      return (new Entities.TaskCollection).fetch();
+      var tasks = new Entities.TaskCollection
+      tasks.fetch();
+
+      return tasks;
     }
   };
 
