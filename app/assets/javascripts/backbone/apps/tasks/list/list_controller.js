@@ -9,8 +9,9 @@ this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, 
 
         var view = _this.getTaskCollectionView(tasks);
 
-        // _this.listenTo(view, '', function(args) {
-        // });
+        _this.listenTo(view, 'task:selected', function(args) {
+          args.model.save();
+        });
 
         _this.show(view, { region: App.tasksRegion });
       });
