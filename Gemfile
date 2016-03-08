@@ -7,6 +7,7 @@ gem 'pg', '~> 0.18.4'
 gem 'active_model_serializers', '~> 0.9.4'
 gem 'strong_parameters', '~> 0.2.3'
 gem 'unicorn', '~> 5.0.1'
+gem 'ejs', '~> 1.1.1'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
