@@ -4,16 +4,18 @@ this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, 
 
     ui: {
       checkbox: 'input[type=checkbox]',
+      deleteButton: 'a',
       title: 'span'
     },
 
     events: {
       'click @ui.checkbox' : 'checkTask',
       'click @ui.title' : 'checkWithTitle',
+      'click @ui.deleteButton' : 'deleteTask'
     },
 
     templateHelpers: {
-      check: function() {
+      checkAttr: function() {
         return this.done ? 'CHECKED' : '';
       }
     },
@@ -21,13 +23,17 @@ this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, 
     checkTask: function() {
       this.model.set('done', this.ui.checkbox.prop('checked') ? true : false);
 
-      this.trigger('input:check', this.model);
+      this.trigger('input:checked', this.model);
     },
 
     checkWithTitle: function() {
       this.ui.checkbox.prop('checked', !this.ui.checkbox.prop('checked'));
 
       this.checkTask();
+    },
+
+    deleteTask: function() {
+      this.trigger('deleteButton:clicked');
     }
   });
 
@@ -36,11 +42,16 @@ this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, 
     childView: List.TaskView,
 
     childEvents: {
-      'input:check' : 'taskSelected'
+      'input:checked' : 'onChildInputChecked',
+      'deleteButton:clicked' : 'onChildDeleteButtonClicked'
     },
 
-    taskSelected: function(model) {
-      this.trigger('task:selected', model);
+    onChildInputChecked: function(model) {
+      this.trigger('task:select', model);
+    },
+
+    onChildDeleteButtonClicked: function(model) {
+      this.trigger('task:delete', model);
     }
   });
 });

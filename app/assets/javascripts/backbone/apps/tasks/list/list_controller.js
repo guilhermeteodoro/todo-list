@@ -9,8 +9,13 @@ this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, 
 
         var view = _this.getTaskCollectionView(tasks);
 
-        _this.listenTo(view, 'task:selected', function(args) {
+        _this.listenTo(view, 'task:select', function(args) {
+          // TODO: Validates model before save
           args.model.save();
+        });
+
+        _this.listenTo(view, 'task:delete', function(args) {
+          args.model.destroy();
         });
 
         _this.show(view, { region: App.tasksRegion });
