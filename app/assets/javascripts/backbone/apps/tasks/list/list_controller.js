@@ -1,16 +1,14 @@
 this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, $, _) {
   List.Controller = App.Controllers.Application.extend({
     initialize: function() {
-      var _this = this,
-          tasks = App.request('tasks:entities');
+      this.tasks = App.request('tasks:entities');
 
-      App.execute('when:fetched', tasks, function() {
-        window.foo = tasks;
+      var _this = this;
 
-        var view = _this.getTaskCollectionView(tasks);
+      App.execute('when:fetched', this.tasks, function() {
+        var view = _this.getTaskCollectionView(_this.tasks);
 
         _this.listenTo(view, 'task:select', function(args) {
-          // TODO: Validates model before save
           args.model.save();
         });
 
@@ -24,6 +22,10 @@ this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, 
 
     getTaskCollectionView: function(tasks) {
       return new List.TaskCollectionView({ collection: tasks });
+    },
+
+    addTaskToCollection: function(task) {
+      this.tasks.add(task);
     }
   });
 });

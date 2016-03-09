@@ -13,11 +13,15 @@ this.TodoList.module('FormApp.Show', function(Show, App, Backbone, Marionette, $
     },
 
     events: {
-      'keyup @ui.taskInput' : 'updateTitle'
+      'click @ui.submitButton' : 'updateTitle'
     },
 
     updateTitle: function() {
       this.model.set('title', this.ui.taskInput.val());
+    },
+
+    clearTaskInput: function() {
+      this.ui.taskInput.val('');
     }
   });
 });
