@@ -40,6 +40,9 @@ this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, 
   List.TaskCollectionView = Marionette.CollectionView.extend({
     tagName: 'form',
     childView: List.TaskView,
+    comparator: function(task){
+      return -task.get('created_at').getTime();
+    },
 
     childEvents: {
       'input:checked' : 'onChildInputChecked',
