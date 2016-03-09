@@ -11,6 +11,7 @@ gem 'ejs', '~> 1.1.1'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  gem 'compass-rails', '~> 3.0.2'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
