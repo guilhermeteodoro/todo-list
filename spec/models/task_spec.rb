@@ -18,13 +18,13 @@ describe 'Task' do
       expect(task).to be_invalid
     end
 
-    it 'has a minimum of 5 caracters' do
-      task.title = 'asd'
+    it 'has a minimum of 2 caracters' do
+      task.title = 'a'
       expect(task).to be_invalid
     end
 
     it 'has a maximum of 100 caracters' do
-      task.title = 'asd' * 100
+      task.title = 'a' * 101
       expect(task).to be_invalid
     end
   end

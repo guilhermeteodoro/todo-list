@@ -1,22 +1,27 @@
 this.TodoList.module('FormApp.Show', function(Show, App, Backbone, Marionette, $, _) {
   Show.Controller = App.Controllers.Application.extend({
     initialize: function() {
-      var _this = this,
-          task = App.request('task:entity');
+      this.view = this.getFormView();
 
-      App.execute('when:fetched', task, function() {
-        var view = _this.getFormView(task);
+      var _this = this;
 
-        _this.listenTo(view, 'form:submit', function(args) {
-          args.model.save();
+      this.listenTo(this.view, 'form:submit', function(args) {
+        // TODO: Validates model before save
+        args.model.save('', '', {
+          success: function(model) {
+            App.vent.trigger('task:inserted', { model: model });
+
+            _this.view.clearTaskInput();
+            _this.view.model = new App.Entities.Task;
+          }
         });
-
-        _this.show(view, { region: App.formRegion });
       });
+
+      this.show(this.view, { region: App.formRegion });
     },
 
     getFormView: function(task) {
-      return new Show.FormView({ model: task });
+      return new Show.FormView({ model: new App.Entities.Task });
     }
   });
 });
