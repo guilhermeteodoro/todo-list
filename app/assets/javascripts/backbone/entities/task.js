@@ -7,6 +7,14 @@ this.TodoList.module('Entities', function(Entities, App, Backbone, Marionette, $
     defaults: {
       title: '',
       done: false
+    },
+
+    validate: function(attrs, options) {
+      switch (true) {
+        case (!attrs.title): { return 'title is required'; }
+        case (attrs.title.length < 2): { return 'title is too short, minimum 2 characters'; }
+        case (attrs.title.length > 100): { return 'title is too long, maximum 100 characters'; }
+      }
     }
   });
 
