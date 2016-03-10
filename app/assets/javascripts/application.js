@@ -1,10 +1,10 @@
-//= require jquery/dist/jquery
-//= require underscore/underscore
-//= require cocktail/Cocktail
-//= require backbone/backbone
-//= require backbone.babysitter/lib/backbone.babysitter
-//= require backbone.wreqr/lib/backbone.wreqr
-//= require backbone.marionette/lib/backbone.marionette
+//= require jquery
+//= require underscore
+//= require cocktail
+//= require backbone
+//= require backbone.babysitter
+//= require backbone.wreqr
+//= require backbone.marionette
 
 //= require_tree ./backbone/lib/views
 //= require_tree ./config
