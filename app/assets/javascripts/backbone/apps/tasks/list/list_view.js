@@ -1,6 +1,14 @@
 this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, $, _) {
   List.TaskView = Marionette.ItemView.extend({
     template: 'tasks/list/templates/task',
+    className: function() {
+      var klass = 'task';
+      klass += this.model.get('done') ? ' is-checked' : '';
+
+      window.foo = this
+
+      return klass;
+    },
 
     ui: {
       checkbox: 'input[type=checkbox]',
@@ -16,12 +24,13 @@ this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, 
 
     templateHelpers: {
       checkAttr: function() {
-        return this.done ? 'CHECKED' : '';
+        return this.done ? 'checked' : '';
       }
     },
 
     checkTask: function() {
       this.model.set('done', this.ui.checkbox.prop('checked') ? true : false);
+      this.$el.toggleClass('is-checked');
 
       this.trigger('input:checked', this.model);
     },
@@ -39,6 +48,7 @@ this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, 
 
   List.TaskCollectionView = Marionette.CollectionView.extend({
     tagName: 'form',
+    className: '',
     childView: List.TaskView,
     comparator: function(task){
       return -task.get('created_at').getTime();

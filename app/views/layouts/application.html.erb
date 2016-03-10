@@ -8,6 +8,12 @@
     <%= csrf_meta_tags %>
     </head>
   <body>
-    <%= yield %>
+    <div class='card card--fixed card--centralize'>
+      <div class='card-content'>
+        <h1>Todo List</h1>
+
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

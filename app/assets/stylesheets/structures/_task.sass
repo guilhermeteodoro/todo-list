@@ -1,0 +1,37 @@
+// *************************************
+//
+//   Task
+//
+// *************************************
+
+.task
+  padding: 3px 5px
+
+.task:hover
+  .task-deleteButton
+    +opacity(1)
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+.task.is-checked
+  .task-title
+    color: $c-subdue
+    font-style: italic
+    text-decoration: line-through
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.task-title
+  +inline-block
+  padding: 0 8px
+  width: 400px
+
+.task-checkbox
+  +inline-block
+
+.task-deleteButton
+  +opacity(0)
