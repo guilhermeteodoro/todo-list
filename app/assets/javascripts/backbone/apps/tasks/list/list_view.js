@@ -46,10 +46,15 @@ this.TodoList.module('TasksApp.List', function(List, App, Backbone, Marionette, 
     }
   });
 
+  List.TaskEmptyView = Marionette.ItemView.extend({
+    template: 'tasks/list/templates/empty',
+    className: 'task-emptyMessage'
+  });
+
   List.TaskCollectionView = Marionette.CollectionView.extend({
-    tagName: 'form',
-    className: '',
     childView: List.TaskView,
+    emptyView: List.TaskEmptyView,
+
     comparator: function(task){
       return -task.get('created_at').getTime();
     },
