@@ -21,3 +21,4 @@ config/secrets.yml
 /vendor/assets/javascripts/bower_components/
 
 .env
+.rvmrc
