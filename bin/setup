@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+
+APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
+
+Dir.chdir APP_ROOT do
+  puts "\n== Copying env files =="
+  system 'cp config/sample/env .env' unless File.exist?('.env')
+  system 'cp config/sample/rvmrc .rvmrc'
+  system 'rvm reload'
+
+  puts "\n== Installing dependencies =="
+  system 'gem install bundler --conservative'
+  system 'bundle check || bundle install'
+
+  puts "\n== Removing old logs and tempfiles =="
+  system 'rm -rf log/*'
+  system 'rm -rf tmp/cache'
+end
